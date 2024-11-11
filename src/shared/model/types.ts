@@ -1,1 +1,1 @@
-export type BadgeStatus = 'online' | 'inactive' | 'doNotDisturb' | 'invisible';
+export type UserStatus = 'online' | 'inactive' | 'doNotDisturb' | 'invisible';

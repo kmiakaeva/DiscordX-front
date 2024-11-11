@@ -1,4 +1,4 @@
-import { BadgeStatus } from '../model/types';
+import { useUserStore } from '@/entities/user/model/store';
 
 const badgeStatusConfig = {
   online: { color: 'bg-green-500', icon: <circle cx="6" cy="6" fill="currentColor" /> },
@@ -29,12 +29,13 @@ const badgeStatusConfig = {
   },
 };
 
-export function Badge({ status }: { status: BadgeStatus }) {
+export function Badge() {
+  const { status } = useUserStore();
   const { color, icon } = badgeStatusConfig[status];
 
   return (
     <div
-      className={`absolute bottom-[1px] right-[-1px] h-4 w-4 rounded-full ${color} flex items-center justify-center`}
+      className={`absolute bottom-[1px] right-[-1px] h-[14px] w-[14px] rounded-full ${color} flex items-center justify-center`}
     >
       <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         {icon}

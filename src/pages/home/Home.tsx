@@ -1,11 +1,20 @@
 import { StatusBar } from '@/widgets/status-bar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/shared';
 import { AudioControl } from '@/features/audio-control';
 import { UserCard } from '@/entities/user';
 
 export function Home() {
   return (
-    <div>
-      <StatusBar leftSide={<UserCard />} rightSide={<AudioControl />} />
-    </div>
+    <Popover>
+      <StatusBar
+        leftSide={
+          <PopoverTrigger>
+            <UserCard />
+          </PopoverTrigger>
+        }
+        rightSide={<AudioControl />}
+      />
+      <PopoverContent>Future content.</PopoverContent>
+    </Popover>
   );
 }
