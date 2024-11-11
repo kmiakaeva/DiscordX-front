@@ -1,11 +1,10 @@
-import { StatusBar } from '@/widgets';
-import { AudioControl } from '@/features';
+import { StatusBar } from '@/widgets/status-bar';
+import { AudioControl } from '@/features/audio-control';
 import { UserCard } from '@/entities/user';
 
 export function Home() {
   return (
     <div>
-      <h2>Home Page</h2>
       <StatusBar leftSide={<UserCard />} rightSide={<AudioControl />} />
     </div>
   );
