@@ -6,6 +6,6 @@ export const useUserStore = create<UserState>(set => ({
   name: 'Andy',
   username: 'a_username',
   status: 'online',
-  avatar: 'string',
+  avatarImage: 'string',
   changeStatus: () => set(state => ({ status: state.status })),
 }));

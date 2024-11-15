@@ -1,6 +1,6 @@
 import { ReactNode } from '@tanstack/react-router';
 
-import { SettingsIcon } from '@/features/settings';
+import { SettingsButton } from './SettingsButton';
 
 export function StatusBar({ leftSide, rightSide }: { leftSide: ReactNode; rightSide: ReactNode }) {
   return (
@@ -9,7 +9,7 @@ export function StatusBar({ leftSide, rightSide }: { leftSide: ReactNode; rightS
       <div className="rightSide">
         <div className="flex items-center">
           {rightSide}
-          <SettingsIcon />
+          <SettingsButton />
         </div>
       </div>
     </div>

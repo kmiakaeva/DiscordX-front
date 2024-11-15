@@ -18,15 +18,15 @@ export default tseslint.config({
     react,
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
-    'import': importPlugin,
+    import: importPlugin,
   },
   rules: {
     ...reactHooks.configs.recommended.rules,
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'react-refresh/only-export-components': 'off',
     'import/order': [
       'error',
       {
-        'groups': ['builtin', 'external', 'internal'],
+        groups: ['builtin', 'external', 'internal'],
         'newlines-between': 'always',
       },
     ],

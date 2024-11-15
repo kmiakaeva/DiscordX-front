@@ -1,4 +1,4 @@
-import { useUserStore } from '@/entities/user/model/store';
+import { UserStatus } from '../model/types';
 
 const badgeStatusConfig = {
   online: { color: 'bg-green-500', icon: <circle cx="6" cy="6" fill="currentColor" /> },
@@ -29,8 +29,11 @@ const badgeStatusConfig = {
   },
 };
 
-export function Badge() {
-  const { status } = useUserStore();
+type Props = {
+  status: UserStatus;
+};
+
+export function StatusBadge({ status }: Props) {
   const { color, icon } = badgeStatusConfig[status];
 
   return (

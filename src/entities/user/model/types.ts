@@ -4,6 +4,6 @@ export interface UserState {
   name: string;
   username: string;
   status: UserStatus;
-  avatar: string;
+  avatarImage: string;
   changeStatus: () => void;
 }
