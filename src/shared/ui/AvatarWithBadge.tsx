@@ -1,4 +1,4 @@
-import { StatusBadge, Avatar } from '@/shared/ui';
+import { StatusBadge, Avatar } from './index';
 import { UserStatus } from '../model/types';
 
 type Props = {

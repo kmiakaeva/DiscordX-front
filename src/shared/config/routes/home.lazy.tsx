@@ -5,3 +5,5 @@ import { Home } from '@/pages';
 export const Route = createLazyFileRoute('/home')({
   component: () => <Home />,
 });
+
+// Пофиксить импорт Home
