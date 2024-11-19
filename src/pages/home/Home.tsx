@@ -1,11 +1,12 @@
 import { StatusBar } from '@/widgets/status-bar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui';
+import { SPopover, PopoverContent, PopoverTrigger } from '@/shared/ui';
 import { AudioControl } from '@/features/audio-control';
 import { UserCard } from '@/entities/user';
+import { ProfileCard } from '@/features/user-profile';
 
 export function Home() {
   return (
-    <Popover>
+    <SPopover>
       <StatusBar
         leftSide={
           <PopoverTrigger>
@@ -14,9 +15,9 @@ export function Home() {
         }
         rightSide={<AudioControl />}
       />
-      <PopoverContent>Future content.</PopoverContent>
-    </Popover>
+      <PopoverContent className="bg-zinc-900 border-none">
+        <ProfileCard />
+      </PopoverContent>
+    </SPopover>
   );
 }
-
-// Make Popover

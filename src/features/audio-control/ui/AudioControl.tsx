@@ -1,6 +1,6 @@
 import { Mic, MicOff, Headphones, HeadphoneOff } from 'lucide-react';
 
-import { Button } from '@/shared/ui/SButton';
+import { Button } from '@/shared/ui';
 import { useAudioStore } from '../model/store';
 
 export function AudioControl() {

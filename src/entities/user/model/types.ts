@@ -5,5 +5,7 @@ export interface UserState {
   username: string;
   status: UserStatus;
   avatarImage: string;
+  game: string;
+  playingTime: string;
   changeStatus: () => void;
 }

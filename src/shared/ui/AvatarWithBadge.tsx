@@ -1,17 +1,19 @@
 import { StatusBadge, Avatar } from './index';
-import { UserStatus } from '../model/types';
+import { Size, UserStatus } from '../model/types';
 
 type Props = {
+  className: string;
   avatarImage: string;
   fallback: React.ReactNode;
   status: UserStatus;
+  size?: Size;
 };
 
-export function AvatarWithBadge({ avatarImage, fallback, status }: Props) {
+export function AvatarWithBadge({ className, avatarImage, fallback, status, size }: Props) {
   return (
     <div className="relative">
-      <Avatar avatarImage={avatarImage} fallback={fallback} />
-      <StatusBadge status={status} />
+      <Avatar className={className} avatarImage={avatarImage} fallback={fallback} />
+      <StatusBadge status={status} size={size} />
     </div>
   );
 }
