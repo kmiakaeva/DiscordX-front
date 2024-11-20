@@ -1,15 +1,15 @@
 import { CirclePlus } from 'lucide-react';
 
-import { AvatarWithBadge, Button } from '@/shared/ui';
-import { Size, UserStatus } from '@/shared/model/types';
+import { AvatarWithBadge, Button, Size } from '@/shared/ui';
+import { useUserStore } from '@/entities/user/model/store';
 
 type Props = {
-  name: string;
-  status: UserStatus;
   size: Size;
 };
 
-export function AvatarSection({ name, status, size }: Props) {
+export function AvatarSection({ size }: Props) {
+  const { name, status } = useUserStore();
+
   return (
     <div className="flex items-start justify-between">
       <div className="relative mb-4">

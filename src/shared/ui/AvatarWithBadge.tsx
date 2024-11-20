@@ -1,10 +1,12 @@
-import { StatusBadge, Avatar } from './index';
-import { Size, UserStatus } from '../model/types';
+import { ReactNode } from '@tanstack/react-router';
+
+import { StatusBadge, Avatar, Size } from './index';
+import { UserStatus } from '../model/types';
 
 type Props = {
   className: string;
   avatarImage: string;
-  fallback: React.ReactNode;
+  fallback: ReactNode;
   status: UserStatus;
   size?: Size;
 };

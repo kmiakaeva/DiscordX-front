@@ -1,9 +1,11 @@
+import { ReactNode } from '@tanstack/react-router';
+
 import { SAvatar, AvatarImage, AvatarFallback } from './index';
 
 type Props = {
   className?: string;
   avatarImage: string;
-  fallback: React.ReactNode;
+  fallback: ReactNode;
 };
 
 export function Avatar({ className, avatarImage, fallback }: Props) {

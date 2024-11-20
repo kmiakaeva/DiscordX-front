@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 import { UserState } from './types';
+import { UserStatus } from '@/shared/model/types';
 
 export const useUserStore = create<UserState>(set => ({
   name: 'Andy',
@@ -9,5 +10,5 @@ export const useUserStore = create<UserState>(set => ({
   avatarImage: 'string',
   game: 'The Witcher: Enhanced Edition',
   playingTime: '10:56',
-  changeStatus: () => set(state => ({ status: state.status })),
+  changeStatus: (newStatus: UserStatus) => set({ status: newStatus }),
 }));

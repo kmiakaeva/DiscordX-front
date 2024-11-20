@@ -4,7 +4,7 @@ export * from './SSeparator';
 export * from './SPopover';
 export * from './STooltip';
 export * from './SCard';
-export * from './StatusBadge';
+export * from './UserStatus';
 export * from './SSeparator';
 export * from './Avatar';
 export * from './AvatarWithBadge';

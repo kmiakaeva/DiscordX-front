@@ -7,5 +7,5 @@ export interface UserState {
   avatarImage: string;
   game: string;
   playingTime: string;
-  changeStatus: () => void;
+  changeStatus: (newStatus: UserStatus) => void;
 }

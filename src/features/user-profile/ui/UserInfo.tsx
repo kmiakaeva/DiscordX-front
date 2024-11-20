@@ -1,9 +1,8 @@
-type Props = {
-  name: string;
-  username: string;
-};
+import { useUserStore } from '@/entities/user/model/store';
 
-export function UserInfo({ name, username }: Props) {
+export function UserInfo() {
+  const { name, username } = useUserStore();
+
   return (
     <div className="space-y-1 mb-4">
       <h2 className="text-lg font-semibold leading-none">{name}</h2>

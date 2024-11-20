@@ -1,11 +1,10 @@
 import { FileQuestion, Gamepad2 } from 'lucide-react';
 
-type Props = {
-  game: string;
-  playingTime: string;
-};
+import { useUserStore } from '@/entities/user/model/store';
 
-export function GameInfo({ game, playingTime }: Props) {
+export function GameInfo() {
+  const { game, playingTime } = useUserStore();
+
   return (
     <div className="p-2 mb-3 rounded-md flex flex-col bg-zinc-800 text-xs">
       <span className="mb-3">Играет в </span>
