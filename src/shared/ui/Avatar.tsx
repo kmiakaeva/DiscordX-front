@@ -1,6 +1,6 @@
 import { ReactNode } from '@tanstack/react-router';
 
-import { SAvatar, AvatarImage, AvatarFallback } from './index';
+import { SAvatar, AvatarImage, AvatarFallback } from './';
 
 type Props = {
   className?: string;

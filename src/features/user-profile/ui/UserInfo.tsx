@@ -1,4 +1,4 @@
-import { useUserStore } from '@/entities/user/model/store';
+import { useUserStore } from '@/entities/user/model/userStore';
 
 export function UserInfo() {
   const { name, username } = useUserStore();

@@ -1,7 +1,7 @@
 import { PenSquare, ArrowRightLeft, ChevronRight } from 'lucide-react';
 
 import { Button, Size } from '@/shared/ui';
-import { UserStatusPopup } from '../index';
+import { UserStatusPopup } from '../';
 
 type Props = {
   size: Size;

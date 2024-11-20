@@ -11,7 +11,7 @@ import {
   Size,
   userStatuses,
 } from '@/shared/ui';
-import { useUserStore } from '@/entities/user/model/store';
+import { useUserStore } from '@/entities/user/model/userStore';
 import { UserStatus } from '@/shared/model/types';
 
 type StatusButtonProps = {

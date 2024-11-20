@@ -1,7 +1,7 @@
 import { CirclePlus } from 'lucide-react';
 
 import { AvatarWithBadge, Button, Size } from '@/shared/ui';
-import { useUserStore } from '@/entities/user/model/store';
+import { useUserStore } from '@/entities/user/model/userStore';
 
 type Props = {
   size: Size;

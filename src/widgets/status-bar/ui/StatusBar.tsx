@@ -1,6 +1,6 @@
 import { ReactNode } from '@tanstack/react-router';
 
-import { SettingsButton } from '../index';
+import { SettingsButton } from '../';
 
 export function StatusBar({ leftSide, rightSide }: { leftSide: ReactNode; rightSide: ReactNode }) {
   return (

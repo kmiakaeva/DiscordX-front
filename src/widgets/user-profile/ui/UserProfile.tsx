@@ -1,7 +1,7 @@
 import { Card } from '@/shared/ui';
-import { GameInfo, ProfileActions, UserInfo, AvatarSection } from '../index';
+import { AvatarSection, GameInfo, ProfileActions, UserInfo } from '@/features/user-profile';
 
-export function ProfileCard() {
+export function UserProfile() {
   return (
     <Card className="border-none bg-zinc-900 text-zinc-100 shadow-none">
       <AvatarSection size="lg" />

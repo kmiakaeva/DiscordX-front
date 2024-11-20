@@ -1,6 +1,6 @@
 import { ReactNode } from '@tanstack/react-router';
 
-import { StatusBadge, Avatar, Size } from './index';
+import { StatusBadge, Avatar, Size } from './';
 import { UserStatus } from '../model/types';
 
 type Props = {
