@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 import { UserState } from './types';
-import { UserStatus } from '@/shared/model/types';
+import { UserStatus } from '@/shared/model';
 
 export const useUserStore = create<UserState>(set => ({
   name: 'Andy',

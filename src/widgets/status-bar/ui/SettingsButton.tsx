@@ -1,7 +1,7 @@
 import { Settings } from 'lucide-react';
 
 import { Button } from '@/shared/ui';
-import { useSettingsStore } from '../../settings-panel/model/settingsStore';
+import { useSettingsStore } from '@/entities/settings';
 
 export function SettingsButton() {
   const { openSettings } = useSettingsStore();

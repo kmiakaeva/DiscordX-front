@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { ChevronRight } from 'lucide-react';
 
 import {
@@ -11,8 +10,8 @@ import {
   Size,
   userStatuses,
 } from '@/shared/ui';
-import { useUserStore } from '@/entities/user/model/userStore';
-import { UserStatus } from '@/shared/model/types';
+import { UserStatus } from '@/shared/model';
+import { useUserStore } from '@/entities/users';
 
 type StatusButtonProps = {
   status: UserStatus;
@@ -40,13 +39,6 @@ type UserStatusPopupProps = {
 export function UserStatusPopup({ size }: UserStatusPopupProps) {
   const { status, changeStatus } = useUserStore();
 
-  const handleStatusChange = useCallback(
-    (newStatus: UserStatus) => {
-      changeStatus(newStatus);
-    },
-    [changeStatus],
-  );
-
   return (
     <SPopover>
       <PopoverTrigger asChild>
@@ -70,8 +62,8 @@ export function UserStatusPopup({ size }: UserStatusPopupProps) {
         aria-label="User status options"
       >
         <div className="space-y-2">
-          {(Object.keys(userStatuses) as UserStatus[]).map(statusKey => (
-            <StatusButton key={statusKey} status={statusKey} size={size} onClick={handleStatusChange} />
+          {(Object.keys(userStatuses)).map(statusKey => (
+            <StatusButton key={statusKey} status={statusKey} size={size} onClick={changeStatus} />
           ))}
         </div>
       </PopoverContent>

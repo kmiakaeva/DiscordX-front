@@ -1,6 +1,6 @@
 import { FileQuestion, Gamepad2 } from 'lucide-react';
 
-import { useUserStore } from '@/entities/user/model/userStore';
+import { useUserStore } from '@/entities/users';
 
 export function GameInfo() {
   const { game, playingTime } = useUserStore();

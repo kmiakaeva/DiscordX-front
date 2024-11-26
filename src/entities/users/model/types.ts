@@ -1,6 +1,6 @@
-import { UserStatus } from '@/shared/model/types';
+import { UserStatus } from '@/shared/model';
 
-export interface UserState {
+export type UserState = {
   name: string;
   username: string;
   status: UserStatus;
@@ -8,4 +8,4 @@ export interface UserState {
   game: string;
   playingTime: string;
   changeStatus: (newStatus: UserStatus) => void;
-}
+};

@@ -1,1 +1,2 @@
-export * from './ui/AudioControl';
+export { AudioControl } from './ui/AudioControl';
+export { useAudioStore } from './model/store';

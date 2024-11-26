@@ -7,8 +7,8 @@ import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 export default defineConfig({
   plugins: [
     TanStackRouterVite({
-      routesDirectory: './src/shared/config/routes',
-      generatedRouteTree: './src/shared/config/routeTree.gen.ts',
+      routesDirectory: './src/app/routes/',
+      generatedRouteTree: './src/app/routes/routeTree.gen.ts',
     }),
     react(),
   ],

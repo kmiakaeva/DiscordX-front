@@ -1,7 +1,7 @@
 import { Mic, MicOff, Headphones, HeadphoneOff } from 'lucide-react';
 
 import { Button } from '@/shared/ui';
-import { useAudioStore } from '../model/store';
+import { useAudioStore } from '../';
 
 export function AudioControl() {
   const { isMicMuted, isAudioOff, toggleMic, toggleAudio } = useAudioStore();

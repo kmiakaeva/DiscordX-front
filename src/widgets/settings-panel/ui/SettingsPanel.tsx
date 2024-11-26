@@ -1,4 +1,4 @@
-import { useSettingsStore } from '../model/settingsStore';
+import { useSettingsStore } from '@/entities/settings';
 
 export function SettingsPanel() {
   const { isSettingsOpen, closeSettings } = useSettingsStore();
