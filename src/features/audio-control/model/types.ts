@@ -3,4 +3,4 @@ export type AudioState = {
   isAudioOff: boolean;
   toggleMic: () => void;
   toggleAudio: () => void;
-}
+};

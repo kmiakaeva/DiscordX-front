@@ -62,7 +62,7 @@ export function UserStatusPopup({ size }: UserStatusPopupProps) {
         aria-label="User status options"
       >
         <div className="space-y-2">
-          {(Object.keys(userStatuses)).map(statusKey => (
+          {Object.keys(userStatuses).map(statusKey => (
             <StatusButton key={statusKey} status={statusKey} size={size} onClick={changeStatus} />
           ))}
         </div>
