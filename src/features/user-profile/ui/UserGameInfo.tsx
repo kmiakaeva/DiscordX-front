@@ -1,9 +1,9 @@
 import { FileQuestion, Gamepad2 } from 'lucide-react';
 
-import { useUserStore } from '@/entities/users';
+import { useGameStore } from '@/entities/game';
 
 export function GameInfo() {
-  const { game, playingTime } = useUserStore();
+  const { gameName, playingTime } = useGameStore();
 
   return (
     <div className="p-2 mb-3 rounded-md flex flex-col bg-zinc-800 text-xs">
@@ -13,7 +13,7 @@ export function GameInfo() {
           <FileQuestion className="h-10 w-10 text-zinc-800" />
         </div>
         <div>
-          <div className="font-medium mb-1">{game}</div>
+          <div className="font-medium mb-1">{gameName}</div>
           <div className="flex gap-1 text-xs font-bold text-green-500">
             <Gamepad2 className="h-4 w-4" />
             {playingTime}

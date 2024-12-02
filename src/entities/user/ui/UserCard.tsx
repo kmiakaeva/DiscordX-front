@@ -1,5 +1,5 @@
 import { AvatarWithBadge, StatusText } from '@/shared/ui';
-import { useUserStore } from '../model/userStore';
+import { useUserStore } from '../model/store';
 
 export function UserCard() {
   const { name, status } = useUserStore();

@@ -1,7 +1,7 @@
 import { CirclePlus } from 'lucide-react';
 
 import { AvatarWithBadge, Button, PopoverContent, PopoverTrigger, Size, SPopover } from '@/shared/ui';
-import { useUserStore } from '@/entities/users';
+import { useUserStore } from '@/entities/user';
 
 type Props = {
   size: Size;

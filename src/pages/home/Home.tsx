@@ -3,7 +3,7 @@ import { SPopover, PopoverContent, PopoverTrigger } from '@/shared/ui';
 import { AudioControl } from '@/features/audio-control';
 import { UserProfile } from '@/widgets/user-profile';
 import { SettingsPanel } from '@/widgets/settings-panel';
-import { UserCard } from '@/entities/users';
+import { UserCard } from '@/entities/user';
 
 export function Home() {
   return (
