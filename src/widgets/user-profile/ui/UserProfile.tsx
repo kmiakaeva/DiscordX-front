@@ -1,7 +1,5 @@
-import { AvatarSection } from '@/features/avatar-section';
-import { UserGameInfo } from '@/features/user-game-info';
-import { UserInfo } from '@/features/user-info';
-import { UserProfileActions } from '@/features/user-profile-actions';
+import { AvatarSection, UserInfo, UserProfileActions } from '@/entities/user';
+import { UserGameInfo } from '@/entities/game';
 import { Card } from '@/shared/ui';
 
 export function UserProfile() {

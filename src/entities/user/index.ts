@@ -1,2 +1,2 @@
-export { UserCard } from './ui/UserCard';
+export * from './ui';
 export { useUserStore } from './model/store';

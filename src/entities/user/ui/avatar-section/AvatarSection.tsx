@@ -1,8 +1,16 @@
 import { CirclePlus } from 'lucide-react';
 
-import { AvatarWithBadge, Button, Dialog, DialogOverlay, DialogPortal, DialogTrigger, Size } from '@/shared/ui';
-import { useUserStore } from '@/entities/user';
-import { CustomStatusDialog } from '@/shared/ui';
+import {
+  AvatarWithBadge,
+  Button,
+  Dialog,
+  DialogOverlay,
+  DialogPortal,
+  DialogTrigger,
+  Size,
+  CustomStatusDialog,
+} from '@/shared/ui';
+import { useUserStore } from '../../';
 
 type Props = {
   size: Size;
