@@ -1,14 +1,15 @@
 import { CirclePlus } from 'lucide-react';
 
-import { AvatarWithBadge, Button, PopoverContent, PopoverTrigger, Size, SPopover } from '@/shared/ui';
+import { AvatarWithBadge, Button, Dialog, DialogOverlay, DialogPortal, DialogTrigger, Size } from '@/shared/ui';
 import { useUserStore } from '@/entities/user';
+import { CustomStatusDialog } from '@/shared/ui';
 
 type Props = {
   size: Size;
 };
 
 export function AvatarSection({ size }: Props) {
-  const { name, status } = useUserStore();
+  const { name, username, status } = useUserStore();
 
   return (
     <div className="flex items-start justify-between">
@@ -21,15 +22,19 @@ export function AvatarSection({ size }: Props) {
           size={size}
         />
       </div>
-      <SPopover>
-        <PopoverTrigger asChild>
+      <Dialog>
+        <DialogTrigger asChild>
           <Button size="sm" className="!bg-zinc-800 text-zinc-400 hover:text-zinc-100">
             <CirclePlus className="h-4 w-4 mr-1" />
             <span className="text-xs">Добавить статус</span>
           </Button>
-        </PopoverTrigger>
-        <PopoverContent>Place content for the popover here.</PopoverContent>
-      </SPopover>
+        </DialogTrigger>
+        <DialogPortal>
+          <DialogOverlay>
+            <CustomStatusDialog username={username} />
+          </DialogOverlay>
+        </DialogPortal>
+      </Dialog>
     </div>
   );
 }

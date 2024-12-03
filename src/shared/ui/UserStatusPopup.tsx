@@ -11,20 +11,19 @@ import {
   userStatuses,
 } from '@/shared/ui';
 import { UserStatus } from '@/shared/model';
-import { useUserStore } from '@/entities/user';
 
-type StatusButtonProps = {
+type Props = {
   status: UserStatus;
   size: Size;
-  onClick: (status: UserStatus) => void;
+  changeStatus: (status: UserStatus) => void;
 };
 
-function StatusButton({ status, size, onClick }: StatusButtonProps) {
+function StatusButton({ status, size, changeStatus }: Props) {
   return (
     <Button
       variant="ghost"
       className="w-full justify-start gap-2 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
-      onClick={() => onClick(status)}
+      onClick={() => changeStatus(status)}
     >
       <StatusIcon status={status} size={size} />
       <StatusText status={status} />
@@ -32,13 +31,7 @@ function StatusButton({ status, size, onClick }: StatusButtonProps) {
   );
 }
 
-type UserStatusPopupProps = {
-  size: Size;
-};
-
-export function UserStatusPopup({ size }: UserStatusPopupProps) {
-  const { status, changeStatus } = useUserStore();
-
+export function UserStatusPopup({ size, status, changeStatus }: Props) {
   return (
     <SPopover>
       <PopoverTrigger asChild>
@@ -63,7 +56,7 @@ export function UserStatusPopup({ size }: UserStatusPopupProps) {
       >
         <div className="space-y-2">
           {Object.keys(userStatuses).map(statusKey => (
-            <StatusButton key={statusKey} status={statusKey} size={size} onClick={changeStatus} />
+            <StatusButton key={statusKey} status={statusKey} size={size} changeStatus={changeStatus} />
           ))}
         </div>
       </PopoverContent>

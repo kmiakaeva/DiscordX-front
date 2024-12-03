@@ -2,10 +2,9 @@ import { StatusBar } from '@/widgets/status-bar';
 import { SPopover, PopoverContent, PopoverTrigger } from '@/shared/ui';
 import { AudioControl } from '@/features/audio-control';
 import { UserProfile } from '@/widgets/user-profile';
-import { SettingsPanel } from '@/widgets/settings-panel';
 import { UserCard } from '@/entities/user';
 
-export function Home() {
+export function HomePage() {
   return (
     <>
       <SPopover>
@@ -21,7 +20,6 @@ export function Home() {
           <UserProfile />
         </PopoverContent>
       </SPopover>
-      <SettingsPanel />
     </>
   );
 }

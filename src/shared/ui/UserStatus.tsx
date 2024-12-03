@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Moon } from 'lucide-react';
 
 import { cn } from '../lib/utils';
@@ -18,39 +17,30 @@ type Props = {
   size?: Size;
 };
 
+const sizeClasses = {
+  sm: 'w-3 h-3',
+  md: 'w-4 h-4',
+  lg: 'w-5 h-5',
+};
+
+const iconSizeClasses = {
+  sm: 'w-2.5 h-2.5',
+  md: 'w-3.5 h-3.5',
+  lg: 'w-4 h-4',
+};
+
+const barSizeClasses = {
+  sm: 'w-2 h-0.5',
+  md: 'w-2.5 h-[3px]',
+  lg: 'w-3 h-1',
+};
+
 export function StatusText({ status }: Props) {
   return <span>{userStatuses[status]}</span>;
 }
 
 export function StatusIcon({ status, size = 'sm' }: Props) {
-  const sizeClasses = useMemo(
-    () => ({
-      sm: 'w-3 h-3',
-      md: 'w-4 h-4',
-      lg: 'w-5 h-5',
-    }),
-    [],
-  );
-
-  const baseClasses = useMemo(() => cn('rounded-full', sizeClasses[size]), [size, sizeClasses]);
-
-  const iconSizeClasses = useMemo(
-    () => ({
-      sm: 'w-2.5 h-2.5',
-      md: 'w-3.5 h-3.5',
-      lg: 'w-4 h-4',
-    }),
-    [],
-  );
-
-  const barSizeClasses = useMemo(
-    () => ({
-      sm: 'w-2 h-0.5',
-      md: 'w-2.5 h-[3px]',
-      lg: 'w-3 h-1',
-    }),
-    [],
-  );
+  const baseClasses = cn('rounded-full', sizeClasses[size]);
 
   switch (status) {
     case 'online':
