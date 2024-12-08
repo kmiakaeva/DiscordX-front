@@ -1,16 +1,7 @@
 import { CirclePlus } from 'lucide-react';
 
-import {
-  AvatarWithBadge,
-  Button,
-  Dialog,
-  DialogOverlay,
-  DialogPortal,
-  DialogTrigger,
-  Size,
-  CustomStatusDialog,
-} from '@/shared/ui';
-import { useUserStore } from '../../';
+import { AvatarWithBadge, Button, Dialog, DialogOverlay, DialogPortal, DialogTrigger, Size } from '@/shared/ui';
+import { CustomStatusPopup, useUserStore } from '../../';
 
 type Props = {
   size: Size;
@@ -39,7 +30,7 @@ export function AvatarSection({ size }: Props) {
         </DialogTrigger>
         <DialogPortal>
           <DialogOverlay>
-            <CustomStatusDialog username={username} />
+            <CustomStatusPopup username={username} />
           </DialogOverlay>
         </DialogPortal>
       </Dialog>

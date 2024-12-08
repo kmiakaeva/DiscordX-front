@@ -11,5 +11,6 @@ export * from './SSeparator';
 export * from './UserStatus';
 export { Avatar } from './Avatar';
 export { AvatarWithBadge } from './AvatarWithBadge';
-export { CustomStatusDialog } from './CustomStatusDialog';
 export { UserStatusPopup } from './UserStatusPopup';
+export { CustomInput } from './CustomInput';
+export { LabeledSelect } from './LabeledSelect';

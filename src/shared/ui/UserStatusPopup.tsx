@@ -4,7 +4,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   Button,
-  SPopover,
+  Popover,
   StatusIcon,
   StatusText,
   Size,
@@ -33,7 +33,7 @@ function StatusButton({ status, size, changeStatus }: Props) {
 
 export function UserStatusPopup({ size, status, changeStatus }: Props) {
   return (
-    <SPopover>
+    <Popover>
       <PopoverTrigger asChild>
         <Button
           variant="ghost"
@@ -60,6 +60,6 @@ export function UserStatusPopup({ size, status, changeStatus }: Props) {
           ))}
         </div>
       </PopoverContent>
-    </SPopover>
+    </Popover>
   );
 }

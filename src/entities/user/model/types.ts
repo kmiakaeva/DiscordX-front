@@ -5,7 +5,7 @@ export type UserState = {
   username: string;
   status: UserStatus;
   avatarImage: string;
-  game: string;
-  playingTime: string;
+  customStatus?: string;
   changeStatus: (newStatus: UserStatus) => void;
+  changeCustomStatus: (newCustomStatus: string) => void;
 };

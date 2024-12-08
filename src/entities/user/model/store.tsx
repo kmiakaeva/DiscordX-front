@@ -8,7 +8,6 @@ export const useUserStore = create<UserState>(set => ({
   username: 'a_username',
   status: 'invisible',
   avatarImage: 'string',
-  game: 'The Witcher: Enhanced Edition',
-  playingTime: '10:56',
   changeStatus: (newStatus: UserStatus) => set({ status: newStatus }),
+  changeCustomStatus: (newCustomStatus: string) => set({ customStatus: newCustomStatus }),
 }));
