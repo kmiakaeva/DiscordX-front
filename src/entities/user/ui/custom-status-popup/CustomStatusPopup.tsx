@@ -1,5 +1,6 @@
 import { Smile } from 'lucide-react';
 import { useState } from 'react';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 import {
   DialogContent,
@@ -12,9 +13,10 @@ import {
   userStatuses,
   CustomInput,
   LabeledSelect,
+  DialogDescription,
 } from '@/shared/ui';
 import { UserStatus } from '@/shared/model';
-import { StatusSelectOption, useUserStore } from '@/entities/user';
+import { StatusSelectOption, useUserStore } from '../../';
 
 type CustomStatusFieldsProps = {
   inputStatus: string;
@@ -85,6 +87,9 @@ export function CustomStatusPopup({ username }: Props) {
       <DialogHeader>
         <DialogTitle className="text-xl font-semibold">Задать пользовательский статус</DialogTitle>
         <p className="text-sm text-zinc-400">КАК ЖИЗНЬ, {username?.toUpperCase()}?</p>
+        <VisuallyHidden>
+          <DialogDescription>This is a hidden description for screen readers.</DialogDescription>
+        </VisuallyHidden>
       </DialogHeader>
 
       <CustomStatusFields
@@ -97,9 +102,8 @@ export function CustomStatusPopup({ username }: Props) {
       />
 
       <DialogFooter className="sm:justify-between">
-        <DialogClose>
+        <DialogClose asChild>
           <Button
-            type="button"
             variant="ghost"
             className="PopoverClose text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
             onClick={() => {
