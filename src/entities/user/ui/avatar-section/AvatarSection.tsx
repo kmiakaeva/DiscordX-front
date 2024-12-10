@@ -8,7 +8,7 @@ type Props = {
 };
 
 export function AvatarSection({ size }: Props) {
-  const { name, username, status } = useUserStore();
+  const { name, username, status, avatarImage } = useUserStore();
 
   return (
     <div className="flex items-start justify-between">
@@ -16,7 +16,7 @@ export function AvatarSection({ size }: Props) {
         <AvatarWithBadge
           className="w-[76px] h-[76px]"
           fallback={name[0]}
-          avatarImage="https://github.com/shadcn.png"
+          avatarImage={avatarImage}
           status={status}
           size={size}
         />
