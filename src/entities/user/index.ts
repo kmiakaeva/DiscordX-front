@@ -1,3 +1,3 @@
 export * from './ui';
-export { useUserStore } from './model/store';
-export { fetchUser } from './api/fetchUser';
+export { useFetchUser } from './api/useFetchUser';
+export { useUserMutation } from './api/useUserMutation';

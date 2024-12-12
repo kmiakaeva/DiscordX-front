@@ -1,15 +1,13 @@
 import { PenSquare, ArrowRightLeft, ChevronRight } from 'lucide-react';
 
-import { Button, Size, UserStatusPopup } from '@/shared/ui';
-import { useUserStore } from '../../';
+import { Button, Size } from '@/shared/ui';
+import { UserStatusPopup } from '../';
 
 type Props = {
   size: Size;
 };
 
 export function UserProfileActions({ size }: Props) {
-  const { status, changeStatus } = useUserStore();
-
   return (
     <>
       <div className="p-2 mb-3 rounded-md flex flex-col bg-zinc-800 text-xs">
@@ -18,7 +16,7 @@ export function UserProfileActions({ size }: Props) {
           Редактировать профиль
         </Button>
 
-        <UserStatusPopup size={size} status={status} changeStatus={changeStatus} />
+        <UserStatusPopup size={size} />
       </div>
 
       <div className="p-2 mb-3 rounded-md flex flex-col bg-zinc-800 text-xs">

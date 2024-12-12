@@ -10,15 +10,16 @@ import {
   Size,
   userStatuses,
 } from '@/shared/ui';
+import { useFetchUser, useUserMutation } from '../..';
 import { UserStatus } from '@/shared/model';
 
-type Props = {
+type StatusButtonProps = {
   status: UserStatus;
   size: Size;
   changeStatus: (status: UserStatus) => void;
 };
 
-function StatusButton({ status, size, changeStatus }: Props) {
+function StatusButton({ status, size, changeStatus }: StatusButtonProps) {
   return (
     <Button
       variant="ghost"
@@ -31,7 +32,23 @@ function StatusButton({ status, size, changeStatus }: Props) {
   );
 }
 
-export function UserStatusPopup({ size, status, changeStatus }: Props) {
+type UserStatusPopupProps = {
+  size: Size;
+};
+
+export function UserStatusPopup({ size }: UserStatusPopupProps) {
+  const { data } = useFetchUser(1);
+  const updateUser = useUserMutation();
+
+  const changeStatus = (status: UserStatus) => {
+    if (data?.id) {
+      updateUser.mutate({
+        id: data.id,
+        data: { status },
+      });
+    }
+  };
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -41,8 +58,8 @@ export function UserStatusPopup({ size, status, changeStatus }: Props) {
           aria-label="Select user status"
         >
           <div className="flex items-center gap-2">
-            <StatusIcon status={status} size={size} />
-            <StatusText status={status} />
+            <StatusIcon status={data?.status ?? 'inactive'} size={size} />
+            <StatusText status={data?.status ?? 'inactive'} />
           </div>
           <ChevronRight className="h-4 w-4" />
         </Button>

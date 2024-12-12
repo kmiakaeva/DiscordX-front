@@ -16,7 +16,7 @@ import {
   DialogDescription,
 } from '@/shared/ui';
 import { UserStatus } from '@/shared/model';
-import { StatusSelectOption, useUserStore } from '../../';
+import { StatusSelectOption, useFetchUser, useUserMutation } from '../../';
 
 type CustomStatusFieldsProps = {
   inputStatus: string;
@@ -66,27 +66,36 @@ function CustomStatusFields({
   );
 }
 
-type Props = {
-  username: string;
-};
+export function CustomStatusPopup() {
+  const { isPending, isError, data, error } = useFetchUser(1);
+  const updateUser = useUserMutation();
 
-export function CustomStatusPopup({ username }: Props) {
-  const { status, customStatus, changeCustomStatus, changeStatus } = useUserStore();
-
-  const [inputStatus, setInputStatus] = useState(customStatus || '');
+  const [inputStatus, setInputStatus] = useState(data?.customStatus || '');
   const [clearAfter, setClearAfter] = useState(clearOptions[0].value);
-  const [userStatus, setUserStatus] = useState<UserStatus>(status);
+  const [userStatus, setUserStatus] = useState<UserStatus>(data?.status || 'online');
 
   const saveCustomStatusChanges = () => {
-    changeCustomStatus(inputStatus);
-    changeStatus(userStatus);
+    if (data?.id) {
+      updateUser.mutate({
+        id: data?.id,
+        data: { customStatus: inputStatus, status: userStatus },
+      });
+    }
   };
+
+  if (isPending) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
 
   return (
     <DialogContent className="sm:max-w-[425px] bg-zinc-900 text-zinc-100 border-zinc-800">
       <DialogHeader>
         <DialogTitle className="text-xl font-semibold">Задать пользовательский статус</DialogTitle>
-        <p className="text-sm text-zinc-400">КАК ЖИЗНЬ, {username?.toUpperCase()}?</p>
+        <p className="text-sm text-zinc-400">КАК ЖИЗНЬ, {data.username.toUpperCase()}?</p>
         <VisuallyHidden>
           <DialogDescription>This is a hidden description for screen readers.</DialogDescription>
         </VisuallyHidden>
@@ -103,14 +112,7 @@ export function CustomStatusPopup({ username }: Props) {
 
       <DialogFooter className="sm:justify-between">
         <DialogClose asChild>
-          <Button
-            variant="ghost"
-            className="PopoverClose text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
-            onClick={() => {
-              setInputStatus(customStatus || '');
-              setUserStatus(status);
-            }}
-          >
+          <Button variant="ghost" className="PopoverClose text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">
             Отмена
           </Button>
         </DialogClose>

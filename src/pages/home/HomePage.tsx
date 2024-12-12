@@ -1,31 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
-
 import { StatusBar } from '@/widgets/status-bar';
 import { UserProfile } from '@/widgets/user-profile';
 import { AudioControl } from '@/features/audio-control';
-import { fetchUser, UserCard, useUserStore } from '@/entities/user';
+import { UserCard, useFetchUser } from '@/entities/user';
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui';
-import { User } from '@/entities/user/model/types';
 
 export function HomePage() {
-  const { setUser } = useUserStore();
-
-  const {
-    isPending,
-    isError,
-    data: user,
-    error,
-  } = useQuery<User, Error>({
-    queryKey: ['user', 4],
-    queryFn: () => fetchUser(4),
-  });
-
-  useEffect(() => {
-    if (user) {
-      setUser(user);
-    }
-  }, [user, setUser]);
+  const { isPending, isError, error } = useFetchUser(1);
 
   if (isPending) {
     return <span>Loading...</span>;

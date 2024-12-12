@@ -1,23 +1,31 @@
 import { CirclePlus } from 'lucide-react';
 
 import { AvatarWithBadge, Button, Dialog, DialogOverlay, DialogPortal, DialogTrigger, Size } from '@/shared/ui';
-import { CustomStatusPopup, useUserStore } from '../../';
+import { CustomStatusPopup, useFetchUser } from '../../';
 
 type Props = {
   size: Size;
 };
 
 export function AvatarSection({ size }: Props) {
-  const { name, username, status, avatarImage } = useUserStore();
+  const { isPending, isError, data, error } = useFetchUser(1);
+
+  if (isPending) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
 
   return (
     <div className="flex items-start justify-between">
       <div className="relative mb-4">
         <AvatarWithBadge
           className="w-[76px] h-[76px]"
-          fallback={name[0]}
-          avatarImage={avatarImage}
-          status={status}
+          fallback={data.name[0]}
+          avatarImage={data.avatarImage}
+          status={data.status}
           size={size}
         />
       </div>
@@ -30,7 +38,7 @@ export function AvatarSection({ size }: Props) {
         </DialogTrigger>
         <DialogPortal>
           <DialogOverlay>
-            <CustomStatusPopup username={username} />
+            <CustomStatusPopup />
           </DialogOverlay>
         </DialogPortal>
       </Dialog>
