@@ -16,6 +16,5 @@ export const useFetchUser = (id: number) => {
   return useQuery<User, Error>({
     queryKey: ['user', id],
     queryFn: () => fetchUser(id),
-    retry: 2,
   });
 };

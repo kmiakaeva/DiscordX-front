@@ -1,7 +1,7 @@
 import { useFetchUser } from '../../';
 
 export function UserInfo() {
-  const { isPending, isError, data, error } = useFetchUser(1);
+  const { isPending, isError, data, error } = useFetchUser(6);
 
   if (isPending) {
     return <span>Loading...</span>;

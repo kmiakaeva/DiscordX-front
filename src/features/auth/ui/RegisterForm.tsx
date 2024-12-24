@@ -2,14 +2,11 @@ import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
 
 import { Button, LabeledInput } from '@/shared/ui';
-
-type FormData = {
-  name: string;
-  email: string;
-  password: string;
-};
+import { useRegisterUser } from '../api/useRegisterUser';
+import { FormData } from '../model/types';
 
 export function RegisterForm() {
+  const registerUser = useRegisterUser();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -18,6 +15,7 @@ export function RegisterForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    registerUser.mutate(formData);
   };
 
   return (

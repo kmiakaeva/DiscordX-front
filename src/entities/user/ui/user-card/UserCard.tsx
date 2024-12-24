@@ -4,7 +4,7 @@ import { AvatarWithBadge, StatusText } from '@/shared/ui';
 import { useFetchUser } from '../../';
 
 export function UserCard() {
-  const { isPending, isError, data, error } = useFetchUser(1);
+  const { isPending, isError, data, error } = useFetchUser(6);
   const [showUsername, setShowUsername] = useState(false);
 
   if (isPending) {

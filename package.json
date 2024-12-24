@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "steiger": "npx steiger src",
     "steiger-fix": "npx steiger src --fix",
-    "lint": "eslint",
+    "lint": "eslint src/**/*.{ts,tsx} --format stylish",
     "lint-fix": "eslint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "preview": "vite preview"

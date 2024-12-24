@@ -5,7 +5,7 @@ import { UserCard, useFetchUser } from '@/entities/user';
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui';
 
 export function HomePage() {
-  const { isPending, isError, error } = useFetchUser(1);
+  const { isPending, isError, error } = useFetchUser(6);
 
   if (isPending) {
     return <span>Loading...</span>;

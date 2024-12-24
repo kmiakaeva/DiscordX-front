@@ -37,7 +37,7 @@ type UserStatusPopupProps = {
 };
 
 export function UserStatusPopup({ size }: UserStatusPopupProps) {
-  const { data } = useFetchUser(1);
+  const { data } = useFetchUser(6);
   const updateUser = useUserMutation();
 
   const changeStatus = (status: UserStatus) => {

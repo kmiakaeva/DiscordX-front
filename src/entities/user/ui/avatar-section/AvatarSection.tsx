@@ -8,7 +8,7 @@ type Props = {
 };
 
 export function AvatarSection({ size }: Props) {
-  const { isPending, isError, data, error } = useFetchUser(1);
+  const { isPending, isError, data, error } = useFetchUser(6);
 
   if (isPending) {
     return <span>Loading...</span>;

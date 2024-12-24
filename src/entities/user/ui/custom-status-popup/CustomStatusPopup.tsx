@@ -67,7 +67,7 @@ function CustomStatusFields({
 }
 
 export function CustomStatusPopup() {
-  const { isPending, isError, data, error } = useFetchUser(1);
+  const { isPending, isError, data, error } = useFetchUser(6);
   const updateUser = useUserMutation();
 
   const [inputStatus, setInputStatus] = useState(data?.customStatus || '');
