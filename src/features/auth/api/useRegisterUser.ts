@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FormData } from '../model/types';
 
 const registerUser = async (data: FormData) => {
-  const response = await fetch('http://localhost:3000/users', {
+  const response = await fetch('http://localhost:3000/auth/register', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
