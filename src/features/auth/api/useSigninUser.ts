@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { FormData } from '../model/types';
 
-const registerUser = async (data: FormData) => {
-  const response = await fetch('http://localhost:3000/auth/register', {
+const signinUser = async (data: FormData) => {
+  const response = await fetch('http://localhost:3000/auth/signin', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -17,11 +17,11 @@ const registerUser = async (data: FormData) => {
   return result;
 };
 
-export const useRegisterUser = () => {
+export const useSigninUser = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: registerUser,
+    mutationFn: signinUser,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
     },

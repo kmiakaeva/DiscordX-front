@@ -27,3 +27,10 @@ export const registerSchema = z.object({
 });
 
 export type RegisterFormData = z.infer<typeof registerSchema>;
+
+export const signinSchema = z.object({
+  email: z.string().email(errorMessages.email.invalid).min(1, errorMessages.email.required),
+  password: z.string().min(6, errorMessages.password.min).max(50, errorMessages.password.max),
+});
+
+export type SigninFormData = z.infer<typeof signinSchema>;
